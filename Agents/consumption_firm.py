@@ -7,6 +7,9 @@ Created on Sun Apr 30 19:38:31 2023
 """
 
 from mesa import Agent
+from utils import expectation
+
+# variables k_productivity et k_l_ratio à définir
 
 class Consumption_firm(Agent):
     
@@ -14,24 +17,34 @@ class Consumption_firm(Agent):
         super().__init__(unique_id, model)
         self.sales = 0
         self.expected_sales = 0
-        
-    @classmethod
-    def expectation(past, expected_past, l = 0.5):
-        return expected_past + l*(past-expected_past)
+        self.desired_output = 0
+        self.inventory = 0
+        self.l_needs = 0
+        self.real_k = 0
+        self.unique_ids = [] # list of employees of the firm
         
     def step1(self):
         '''
         Production planning: consumption and capital firms compute their
         desired output level.
         '''
-        pass
+        self.desired_output = expectation(self.sales, self.expected_sales) - self.inventory
     
     def step2(self):
         '''
         Firms' labor demand: firms evaluate the number of workers needed to 
         produce.
         '''
-        pass
+        u = min (1,self.desired_output/(self.real_k * self.model.k_productivity))
+        self.l_needs = u * self.real_capital / self.model.k_l_ratio
+        
+        r = round(self.l_needs)
+        l = len(self.unique_ids)
+        if r < l:
+            s = self.model.sample(self.unique_ids,l-r)
+            for i in s:
+                self.unique_ids.remove(i)
+                self.model.fired(i)
     
     def step3(self):
         '''
