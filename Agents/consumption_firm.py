@@ -68,7 +68,8 @@ class Consumption_firm(Agent):
        
     def step8(self):
         '''
-        Labor market: unemployed workers interact with firms on the labor market.
+        Labor market: unemployed workers interact with firms on the labor 
+        market.
         '''
         pass
        
@@ -80,27 +81,32 @@ class Consumption_firm(Agent):
     
     def step10(self):
         '''
-        Capital goods market (2): consumption firms purchase capital from their supplier. New machineries are employed in the production process starting from the next period.
+        Capital goods market (2): consumption firms purchase capital from their
+        supplier. New machineries are employed in the production process 
+        starting from the next period.
         '''
         pass
     
     def step11(self):
         '''
-        Consumption goods market: households interact with consumption firms and consume.
+        Consumption goods market: households interact with consumption firms 
+        and consume.
         '''
         pass
     
     def step12(self):
         '''
-        Interest, bonds and loans repayment: firms pay interests on loans and repay a (constant) share of each loan principal. The
-        government repays bonds and interest to bonds' holders. Banks pay interest on deposits. Cash advances and related
-        interests, when present, are repaid.
+        Interest, bonds and loans repayment: firms pay interests on loans and 
+        repay a (constant) share of each loan principal. The government repays
+        bonds and interest to bonds' holders. Banks pay interest on deposits.
+        Cash advances and related interests, when present, are repaid.
         '''
         pass
     
     def step13(self):
         '''
-        Wages and dole: wages are paid. Unemployed workers receive a dole from the government.
+        Wages and dole: wages are paid. Unemployed workers receive a dole from
+        the government.
         '''
         pass
     
@@ -118,7 +124,8 @@ class Consumption_firm(Agent):
     
     def step16(self):
         '''
-        Deposit market interaction: households an firms select their deposit bank.
+        Deposit market interaction: households an firms select their deposit
+        bank.
         '''
         pass
     
@@ -130,7 +137,8 @@ class Consumption_firm(Agent):
     
     def step18(self):
         '''
-        Cash Advances: the Central Bank accommodates cash advances requests by private banks.
+        Cash Advances: the Central Bank accommodates cash advances requests by
+        private banks.
         '''
         pass
  
