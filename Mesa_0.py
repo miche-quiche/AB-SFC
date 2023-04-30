@@ -36,7 +36,7 @@ def compute_shannon(model):
 class Animal(mesa.Agent):
     """ A random animal """
     
-    species = ("Prey","Predator")
+    species = ("Prey", "Predator")
     
     def __init__(self, unique_id, model, specie = "Prey"):
         super().__init__(unique_id, model)
