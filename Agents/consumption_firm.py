@@ -12,7 +12,12 @@ class Consumption_firm(Agent):
     
     def __init__(self, unique_id, model):
         super().__init__(unique_id, model)
-        self.wealth = 1
+        self.sales = 0
+        self.expected_sales = 0
+        
+    @classmethod
+    def expectation(past, expected_past, l = 0.5):
+        return expected_past + l*(past-expected_past)
         
     def step1(self):
         '''
