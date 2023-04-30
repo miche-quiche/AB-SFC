@@ -3,7 +3,7 @@
 """
 Created on Mon Apr  3 15:07:38 2023
 
-@author: samuelfrachon
+@author: marjan van frommmaj
 """
 
 import mesa
