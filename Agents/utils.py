@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sun Apr 30 20:44:09 2023
-
-@author: samuelfrachon
 """
 
 def expectation(past, expected_past, l = 0.5):
