@@ -1,53 +1,35 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Sun Apr 30 19:38:31 2023
-
-@author: marjan van frommmaj
+Created on Fri May  5 15:11:16 2023
 """
 
 from agentpy import Agent
-from utils import expectation
+#from utils import the_function_I_need
 
-# variables k_productivity et k_l_ratio à définir
+def fonction_test():
+    return True
 
-class Consumption_firm(Agent):
+
+class Agent_name(Agent):
     
     def __init__(self, unique_id, model):
-        super().__init__(unique_id, model)
-        self.sales = 0
-        self.expected_sales = 0
-        self.desired_output = 0
-        self.inventory = 0
-        self.l_needs = 0
-        self.real_k = 0
-        self.unique_ids = [] # list of employees of the firm
+        # pas besoin de super_init() avec agentpy
+        pass
         
     def step1(self):
         '''
         Production planning: consumption and capital firms compute their
         desired output level.
         '''
-        self.desired_output = expectation(self.sales, self.expected_sales) - self.inventory
+        pass
     
     def step2(self):
         '''
         Firms' labor demand: firms evaluate the number of workers needed to 
         produce.
         '''
-        
-        """
-        u = min (1,self.desired_output/(self.real_k * self.model.k_productivity))
-        self.l_needs = u * self.real_capital / self.model.k_l_ratio
-        
-        r = round(self.l_needs)
-        l = len(self.unique_ids)
-        if r < l:
-            s = self.model.sample(self.unique_ids,l-r)
-            for i in s:
-                self.unique_ids.remove(i)
-                self.model.fired(i)
-        """
+        pass
     
     def step3(self):
         '''
@@ -162,24 +144,3 @@ class Consumption_firm(Agent):
         private banks.
         '''
         pass
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-       
-       
-       
