@@ -1,17 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri May  5 15:11:16 2023
+Created on Sat May  6 11:09:28 2023
 """
 
 from agentpy import Agent
 #from utils import the_function_I_need
 
-def fonction_test():
-    return True
-
-
-class Agent_name(Agent):
+class Bank(Agent):
     
     def __init__(self):
         # pas besoin de super_init() avec agentpy
@@ -144,3 +140,4 @@ class Agent_name(Agent):
         private banks.
         '''
         pass
+

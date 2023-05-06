@@ -13,8 +13,7 @@ from utils import expectation
 
 class Consumption_firm(Agent):
     
-    def __init__(self, unique_id, model):
-        super().__init__(unique_id, model)
+    def __init__(self):
         self.sales = 0
         self.expected_sales = 0
         self.desired_output = 0
