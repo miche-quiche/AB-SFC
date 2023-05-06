@@ -3,9 +3,76 @@
 """
 Created on Sat May  6 15:26:38 2023
 
-See appendice B table 3 p. 406.
+See appendice B p. 405 - 406.
+"""
 
-Abbreviation :
+import pandas as pd
+import numpy as np
+
+"""
+Table 1: Aggregate balance sheet (initial situation).
+
+Abbreviation:
+    - cf for consumption firms
+    - kf for capital firms
+    - cb for central bank
+
+
+Attention, j'ai suivi la convention usuelle pour les dataframes de ranger
+les individus par ligne à l'opposé de la notation usuelle pour les matrices
+stock-flux (dont j'ai en revanche respecté la convention sur les signes + et -)
+
+"""
+
+agent_names = ['households', 'cf', 'kf', 'banks',
+               'governement', 'cb']
+stock_names = ['deposits', 'loans', 'c_good', 'k_goods', 'bonds',
+                 'reserves', 'advances']
+init_stock = np.array([[80704.1, 0, 0, 0, 0, 0, 0],
+                       [25000, -52194.4, 2997.4, 53863.6, 0, 0, 0],
+                       [5000, -1298, 0, 500, 0, 0, 0],
+                       [-110704, 53492.5, 0, 0, 38273.5,  28564.6, 0],
+                       [0, 0, 0, 0,  -66838.1, 0, 0],
+                       [80704.1, 0, 0, 0, 28564.6, -28564.6, 0]
+                       ])
+
+init_stock_df = pd.DataFrame(init_stock, index = agent_names, columns = stock_names)
+
+
+ 
+"""
+Table 2: Aggregate transaction flow matrix (initial situation).
+"""
+
+
+agent_names = ['households', 'cf_ca', 'cf_ka', 'kf_ca', 'kf_ka', 'banks_ca',
+               'banks_ka', 'governement', 'cb_ca', 'cb_ka']
+
+flux_names = ['consumption', 'wages', 'dole', 'cg_inv', 'investiments',
+              'k_amortization', 'taxes', 'i_dep', 'i_bonds', 'i_loans',
+              'i_advances', 'profits', 'cb_profits','d_deposits', 'd_advances',
+              'd_reserves', 'd_bonds', 'd_loans']
+
+init_flux = np.array([[-32971.4,36800,1280,0,0,0,-7084.7,200.3,0,0,0,2367.6,0,-600.8,0,0,0,0],
+                      [32971.4,-25000,0,22.3,0,-4974,-484.8,62,0,-388.5,0,-2208.4,0,0,0,0,0,0],
+                      [0,0,0,-22.3,-5375,4974,0,0,0,0,0,220.8,0,-186.1,0,0,0,388.5],
+                      [0,-5000,0,3.7,5375,0,-68.7,12.4,0,-9.7,0,-312.8,0,0,0,0,0,0],
+                      [0,0,0,-3.7,0,0,0,0,0,0,0,31.3,0,-37.2,0,0,0,9.7],
+                      [0,0,0,0,0,0,-39.3,-274.7,95,398.2,0,-179.1,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,71.7,0,824.1,0,-212.6,-284.9,-398.2],
+                      [0,-6800,-1280,0,0,0,7677.4,0,-165.9,0,0,0,70.9,0,0,0,497.6,0],
+                      [0,0,0,0,0,0,0,0,70.9,0,0,0,-70.9,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,212.6,-212.6,0]
+                      ])
+
+init_flux_df = pd.DataFrame(init_flux, index = agent_names, columns = flux_names)
+
+
+
+"""
+Table 3: Parameters
+
+Abbreviation:
     - k for capital
     - c for consumption
     - f for firm
@@ -15,10 +82,9 @@ Abbreviation :
     - dep for depot
     - cred for credit/loan
     - i for interest rates
-
 """
 
-parameters = {'g':0.0075, #Nominal rate of growth in the steady state (SS)
+init_param = {'g': 0.0075, #Nominal rate of growth in the steady state (SS)
               'n_households': 8000, #Number of households
               'n_cf': 100, #Number of consumption firms
               'n_kf': 20, #Number of capital firms
@@ -74,4 +140,7 @@ parameters = {'g':0.0075, #Nominal rate of growth in the steady state (SS)
               'p_bonds': 1, #Bonds price
 
               'steps':10,
-              'my_attribute':10}
+              }
+
+
+parameters = init_param

@@ -32,6 +32,13 @@ class Economy(ap.Model):
         """ Aggregated variables """
         self.unemployment = 0
         
+    def fire(self, identity):
+        """ Method for firing an agent/resign a contract """
+        pass
+        
+    def hire(self, identity):
+        """ Method for hiring an agent/sign a contract """
+        pass
 
 
     def step(self):

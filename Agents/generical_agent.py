@@ -6,10 +6,7 @@ Created on Fri May  5 15:11:16 2023
 
 from agentpy import Agent
 #from utils import the_function_I_need
-
-def fonction_test():
-    return True
-
+#from parameters import parameters
 
 class Agent_name(Agent):
     

@@ -7,9 +7,9 @@ Created on Sun Apr 30 19:38:31 2023
 """
 
 from agentpy import Agent
-from Agents.utils import expectation
+from utils import expectation
+#from parameters import *
 
-# variables k_productivity et k_l_ratio à définir
 
 class Consumption_firm(Agent):
     
@@ -20,7 +20,7 @@ class Consumption_firm(Agent):
         self.inventory = 0
         self.l_needs = 0
         self.real_k = 0
-        self.unique_ids = [] # list of employees of the firm
+        self.employees_ids = [] # list of employees of the firm
         
     def step1(self):
         '''
@@ -35,18 +35,17 @@ class Consumption_firm(Agent):
         produce.
         '''
         
-        """
-        u = min (1,self.desired_output/(self.real_k * self.model.k_productivity))
-        self.l_needs = u * self.real_capital / self.model.k_l_ratio
+        
+        u = min (1,self.desired_output/(self.real_k * self.model.p.k_productivity))
+        self.l_needs = u * self.real_capital / self.model.p.k_l_ratio
         
         r = round(self.l_needs)
         l = len(self.unique_ids)
         if r < l:
-            s = self.model.sample(self.unique_ids,l-r)
+            s = self.model.sample(self.employees_ids,l-r)
             for i in s:
-                self.unique_ids.remove(i)
                 self.model.fired(i)
-        """
+        
     
     def step3(self):
         '''
