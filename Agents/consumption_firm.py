@@ -7,7 +7,7 @@ Created on Sun Apr 30 19:38:31 2023
 """
 
 from agentpy import Agent
-from utils import expectation
+from Agents.utils import expectation
 
 # variables k_productivity et k_l_ratio à définir
 
