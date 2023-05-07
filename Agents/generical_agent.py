@@ -14,7 +14,8 @@ chdir("..")
 class Agent_name(Agent):
     
     def setup(self):
-        # pas besoin de super_init() avec agentpy
+        #Pas besoin de super_init() avec agentpy.
+        #Problème : il y a besoin d'autres fichiers d'agentpy que Agent
         pass
         
     def step1(self):

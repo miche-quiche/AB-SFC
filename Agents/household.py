@@ -14,8 +14,17 @@ chdir("..")
 class Household(Agent):
     
     def setup(self):
-        # pas besoin de super_init() avec agentpy
+        self.employed = False #O: unemployed, 1: employed
+        self.public_servant = False
+        self.employment_record = [0, 0, 0, 0]
+        self.wage = 0
+        self.deposits=[(0,0)] #(bank_id, amount)
+
         pass
+    
+    def hire(self,wage):
+        self.employed = True
+        self.wage = wage
         
     def step1(self):
         '''

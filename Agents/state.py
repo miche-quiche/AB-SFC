@@ -11,14 +11,12 @@ chdir("..")
 class Central_bank(Agent):
     
     def setup(self):
-        # pas besoin de super_init() avec agentpy
         pass
     
     
 class Government(Agent):
     
     def setup(self):
-        # pas besoin de super_init() avec agentpy
         pass
     
     

@@ -14,7 +14,6 @@ chdir("..")
 class Bank(Agent):
     
     def setup(self):
-        # pas besoin de super_init() avec agentpy
         pass
         
     def step1(self):

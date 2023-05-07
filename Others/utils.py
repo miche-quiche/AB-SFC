@@ -15,3 +15,17 @@ class Contract():
         self.amount = amount
 
     pass
+
+def partition(liste1, liste2):
+    """ renvoie une liste de la taille de la liste 1 avec les élémens de la
+    liste 2 équitablement partionné dedans """
+    
+    import random as random_nul
+    l1 = len(liste1)
+    l2 = len(liste2)
+    k = l1//l2
+    r = l1%l2
+    new_list = l2*k + random_nul.sample(l2,r)
+    random_nul.shuffle(new_list)
+    
+    return new_list

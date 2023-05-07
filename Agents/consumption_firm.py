@@ -13,26 +13,41 @@ chdir("..")
 from Others.utils import expectation
 #from Others.parameters import *
 
+
+import random as random
+
+
 class Consumption_firm(Agent):
     
     def setup(self):
-        self.my_attribute = self.p.my_parameter
-        """
+        
+        #Contracts with others agents
+        self.employees_ids = [] #warning: to access the wage, the firm has to ask the worker
+        self.deposits = [(0,0.)] #(bank_id, amount)
+        self.loans =[(0,0.)] #same
+        
+        #Memory
         self.sales = 0
+        self.real_k = 0
+        self.inventory = 0
+        
+        #Strategy
         self.expected_sales = 0
         self.desired_output = 0
-        self.inventory = 0
+        self.desired_margins = 0
         self.l_needs = 0
-        self.real_k = 0
-        self.employees_ids = [] # list of employees of the firm
-        """
+        
+        
         
     def step1(self):
         '''
         Production planning: consumption and capital firms compute their
         desired output level.
         '''
-        self.desired_output = expectation(self.sales, self.expected_sales) - self.inventory
+        self.expected_sales = expectation(self.sales, self.expected_sales)
+        self.desired_output = self.expected_sales*(1+self.p.inventory_target) - self.inventory
+
+
     
     def step2(self):
         '''
@@ -40,17 +55,21 @@ class Consumption_firm(Agent):
         produce.
         '''
         
-        
+        #calcul du taux d'utilisation désiré
         u = min (1,self.desired_output/(self.real_k * self.p.k_productivity))
+        #calcul des besoins de main d'oeuvre pour ce taux d'utilisation
         self.l_needs = u * self.real_capital / self.p.k_l_ratio
-        
+
+        #suppression de postes si main d'oeuvre excédentaire
         r = round(self.l_needs)
         l = len(self.unique_ids)
         if r < l:
             s = self.model.sample(self.employees_ids,l-r)
             for i in s:
-                self.model.fired(i)
+                self.employees_ids.remove(i)
+                self.model.fire(i)
         
+        #turnover à rajouter plus tard
     
     def step3(self):
         '''
@@ -59,6 +78,7 @@ class Consumption_firm(Agent):
         deposits. Workers adaptively revise their reservation wages.
 
         '''
+        random.normalvariate(mu=0.0, sigma=1.0)
         pass
     
     def step4(self):

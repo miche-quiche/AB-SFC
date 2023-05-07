@@ -91,7 +91,7 @@ init_param = {'g': 0.0075, #Nominal rate of growth in the steady state (SS)
               'n_cf': 100, #Number of consumption firms
               'n_kf': 20, #Number of capital firms
               'n_b': 10, #Number of banks
-              'n_public_servant': 1360, #Number of public servants (constant)
+              'n_public_servants': 1360, #Number of public servants (constant)
               'n_cf_workers': 4000, #Consumption firms' initial workers
               'n_kf_workers': 1000, #Kapital firms' initial workers
               'unemployment': 0.08, #Initial unemployment rate
