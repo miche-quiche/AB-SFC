@@ -5,11 +5,14 @@ Created on Sat May  6 11:07:46 2023
 """
 
 from agentpy import Agent
+from os import chdir
+chdir("..")
+
 #from utils import the_function_I_need
 
 class Capital_firm(Agent):
     
-    def __init__(self):
+    def setup(self):
         # pas besoin de super_init() avec agentpy
         pass
         

@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Sat May  6 11:09:28 2023
+Created on Sun May  7 12:58:05 2023
 """
 
 from agentpy import Agent
 from os import chdir
 chdir("..")
 
-
 #from Others.utils import the_function_I_need
+#from Others.parameters import parameters
 
-class Bank(Agent):
+class Household(Agent):
     
     def setup(self):
         # pas besoin de super_init() avec agentpy
@@ -144,4 +144,3 @@ class Bank(Agent):
         private banks.
         '''
         pass
-

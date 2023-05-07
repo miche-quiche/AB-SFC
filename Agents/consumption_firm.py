@@ -7,13 +7,17 @@ Created on Sun Apr 30 19:38:31 2023
 """
 
 from agentpy import Agent
-from utils import expectation
-#from parameters import *
+from os import chdir
+chdir("..")
 
+from Others.utils import expectation
+#from Others.parameters import *
 
 class Consumption_firm(Agent):
     
-    def __init__(self):
+    def setup(self):
+        self.my_attribute = self.p.my_parameter
+        """
         self.sales = 0
         self.expected_sales = 0
         self.desired_output = 0
@@ -21,6 +25,7 @@ class Consumption_firm(Agent):
         self.l_needs = 0
         self.real_k = 0
         self.employees_ids = [] # list of employees of the firm
+        """
         
     def step1(self):
         '''
@@ -36,8 +41,8 @@ class Consumption_firm(Agent):
         '''
         
         
-        u = min (1,self.desired_output/(self.real_k * self.model.p.k_productivity))
-        self.l_needs = u * self.real_capital / self.model.p.k_l_ratio
+        u = min (1,self.desired_output/(self.real_k * self.p.k_productivity))
+        self.l_needs = u * self.real_capital / self.p.k_l_ratio
         
         r = round(self.l_needs)
         l = len(self.unique_ids)
@@ -161,11 +166,6 @@ class Consumption_firm(Agent):
         '''
         pass
  
-
-
-
-
-
 
 
 

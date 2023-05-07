@@ -21,7 +21,6 @@ Abbreviation:
 Attention, j'ai suivi la convention usuelle pour les dataframes de ranger
 les individus par ligne à l'opposé de la notation usuelle pour les matrices
 stock-flux (dont j'ai en revanche respecté la convention sur les signes + et -)
-
 """
 
 
@@ -71,7 +70,6 @@ init_flux = np.array([[-32971.4,36800,1280,0,0,0,-7084.7,200.3,0,0,0,2367.6,0,-6
 init_flux_df = pd.DataFrame(init_flux, index = agent_names, columns = flux_names)
 
 
-init_stock_flux = {'flux': init_flux_df, 'stock': init_stock_df}
 
 """
 Table 3: Parameters
@@ -147,5 +145,14 @@ init_param = {'g': 0.0075, #Nominal rate of growth in the steady state (SS)
               }
 
 
+# Uniform distribution
+
+nb_workers = init_param['n_households'] * (1-init_param['unemployment'])
+
+print(init_flux_df.loc['households']/nb_workers)
+
+
+
 parameters = init_param
+init_stock_flux = {'flux': init_flux_df, 'stock': init_stock_df}
 parameters.update(init_stock_flux)

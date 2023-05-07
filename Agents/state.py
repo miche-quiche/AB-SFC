@@ -5,17 +5,19 @@ Created on Sat May  6 11:12:24 2023
 """
 
 from agentpy import Agent
+from os import chdir
+chdir("..")
 
 class Central_bank(Agent):
     
-    def __init__(self):
+    def setup(self):
         # pas besoin de super_init() avec agentpy
         pass
     
     
-class Governement(Agent):
+class Government(Agent):
     
-    def __init__(self):
+    def setup(self):
         # pas besoin de super_init() avec agentpy
         pass
     

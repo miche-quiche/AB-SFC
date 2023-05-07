@@ -5,12 +5,15 @@ Created on Fri May  5 15:11:16 2023
 """
 
 from agentpy import Agent
-#from utils import the_function_I_need
-#from parameters import parameters
+from os import chdir
+chdir("..")
+
+#from Others.utils import the_function_I_need
+#from Others.parameters import parameters
 
 class Agent_name(Agent):
     
-    def __init__(self):
+    def setup(self):
         # pas besoin de super_init() avec agentpy
         pass
         
